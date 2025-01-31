@@ -14,9 +14,12 @@ def index():
 def process():
     name = request.form["name"]
     summary, profile_pic_url = ice_break_with(name=name)
+
     return jsonify(
-        "summary_and_facts": summary.to_dict(),
-        "picture_url":profile_pic_url
+        {
+            "summary_and_facts": summary.to_dict(),
+            "picture_url":profile_pic_url
+        }
     )
 
 if __name__ == "__main__":
